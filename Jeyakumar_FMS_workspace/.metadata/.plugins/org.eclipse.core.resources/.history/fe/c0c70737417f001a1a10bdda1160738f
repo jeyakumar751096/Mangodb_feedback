@@ -1,0 +1,16 @@
+package com.fms.reactiveservice.FeedBackApplication.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fms.reactiveservice.FeedBackApplication.Service.AdminFeedbackQnAnswService;
+
+@RestController
+@RequestMapping("/admin/feedback")
+public class AdminFeedbackQnAController {
+
+	@Autowired
+	public AdminFeedbackQnAnswService adminFeedbackQnAnswService;
+	
+}

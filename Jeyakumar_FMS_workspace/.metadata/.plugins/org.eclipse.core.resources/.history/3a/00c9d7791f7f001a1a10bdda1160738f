@@ -1,0 +1,47 @@
+package com.fms.reactiveservice.FeedBackApplication.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.fms.reactiveservice.FeedBackApplication.entity.PmoDetails;
+import com.fms.reactiveservice.FeedBackApplication.repositories.RolePmoDetailsRepositories;
+
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+@Service
+public class RolePmoDetailService {
+	
+	
+	@Autowired
+	private RolePmoDetailsRepositories  rolePmoDetailsRepositories;
+	
+	public Mono<PmoDetails> createRoles(PmoDetails pmoDetail) {
+		return rolePmoDetailsRepositories.save(pmoDetail);
+	}
+
+	public Flux<PmoDetails> getAllPmoDetails() {
+		return rolePmoDetailsRepositories.findAll();
+	}
+	
+	public Mono<PmoDetails> getEmployeeId(Integer employeeId) {
+		return rolePmoDetailsRepositories.findByEmployeeId(employeeId);
+	}
+	
+	public Mono<PmoDetails> updatePmodetailByEmpId(PmoDetails pmoDetail,Integer id) {
+		return rolePmoDetailsRepositories.findByEmployeeId(id).flatMap(exitingPmoDetail -> {
+			exitingPmoDetail.setEmpRole(pmoDetail.getEmpRole());
+			return rolePmoDetailsRepositories.save(exitingPmoDetail);
+		});
+	}
+	
+	
+	public Mono<ResponseEntity<Void>> deleteEmpId( Integer id){
+		return rolePmoDetailsRepositories.findByEmployeeId(id)
+				.flatMap(existingEmp->rolePmoDetailsRepositories.delete(existingEmp).then(Mono.just(new ResponseEntity<Void>(HttpStatus.OK)))
+						).defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.NOT_FOUND));
+	}
+}

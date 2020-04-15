@@ -1,0 +1,9 @@
+package com.fms.reactiveservice.FeedBackApplication.repositories;
+
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
+
+import com.fms.reactiveservice.FeedBackApplication.entity.PmoDetails;
+
+public interface RolePmoDetailsRepositories extends ReactiveCrudRepository<PmoDetails, Integer> {
+
+}

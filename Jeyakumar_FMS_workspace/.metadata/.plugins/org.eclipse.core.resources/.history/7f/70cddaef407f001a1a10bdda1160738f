@@ -1,0 +1,14 @@
+package com.fms.reactiveservice.FeedBackApplication.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fms.reactiveservice.FeedBackApplication.repositories.AdminFeedbackQnAnswRepository;
+
+@Service
+public class AdminFeedbackQnAnswService {
+	
+	@Autowired
+	public AdminFeedbackQnAnswRepository adminFeedbackQnAnswRepository;
+
+}

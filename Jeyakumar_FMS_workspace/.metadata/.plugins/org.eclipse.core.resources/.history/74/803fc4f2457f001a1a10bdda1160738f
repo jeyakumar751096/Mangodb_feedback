@@ -1,0 +1,27 @@
+package com.fms.reactiveservice.FeedBackApplication.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fms.reactiveservice.FeedBackApplication.Service.AdminFeedbackQnAnswService;
+import com.fms.reactiveservice.FeedBackApplication.entity.FeedbackQuestion;
+
+import reactor.core.publisher.Mono;
+
+@RestController
+@RequestMapping("/admin/feedback")
+public class AdminFeedbackQnAController {
+
+	@Autowired
+	public AdminFeedbackQnAnswService adminFeedbackQnAnswService;
+	
+	
+	@PostMapping("/createFeedBackQnA")
+	public Mono<FeedbackQuestion> createFeedBackQnA(@RequestBody FeedbackQuestion feedbackQuestion) {
+		return adminFeedbackQnAnswService.createFeedBackQnA(feedbackQuestion);
+	}
+	
+}

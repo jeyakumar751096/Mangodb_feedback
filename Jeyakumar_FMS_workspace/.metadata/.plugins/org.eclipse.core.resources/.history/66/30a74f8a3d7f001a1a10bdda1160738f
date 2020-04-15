@@ -1,0 +1,12 @@
+package com.fms.reactiveservice.FeedBackApplication.entity;
+
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@Document
+public class FeedbackQuestion {
+
+}

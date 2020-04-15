@@ -1,0 +1,26 @@
+package com.fms.reactiveservice.FeedBackApplication.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fms.reactiveservice.FeedBackApplication.Service.RolePmoDetailService;
+import com.fms.reactiveservice.FeedBackApplication.entity.PmoDetails;
+
+import reactor.core.publisher.Mono;
+
+@RestController
+@RequestMapping("/admin/role")
+public class RolePmoDetailsController {
+	
+	@Autowired
+	private RolePmoDetailService rolePmoDetailService;
+	
+	@PostMapping("/createRole")
+	public Mono<PmoDetails> createRoles(@RequestBody PmoDetails pmoDetail) {
+		return rolePmoDetailService.createRoles(pmoDetail);
+	}
+
+}

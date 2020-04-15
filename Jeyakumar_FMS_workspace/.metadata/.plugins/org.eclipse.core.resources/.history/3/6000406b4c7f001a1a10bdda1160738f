@@ -1,0 +1,58 @@
+/admin/role/createRole
+{
+	 "employeeId": "751096",
+	 "empFirstName": "jeya",
+	 "empLastName" : "kumar",
+	 "empEmailId" : "jairadha007@gmail.com"
+	 "empRole":"PMO"
+	 }
+	 
+	 
+	 
+	 	
+	put:
+	http://localhost:8085/admin/role/updateRole/751095
+	
+	{
+    "empRoleId": 2,
+    "employeeId": 751095,
+    "empFirstName": "jeya",
+    "empLastName": "kumar",
+    "empEmailId": "jairadha007@gmail.com",
+    "empRole": "PMOone"
+}
+
+delete:http://localhost:8085/admin/role/deleteEmpId/751095
+
+
+http://localhost:8085/admin/feedback/createFeedBackQnA
+
+{
+    "questionId": 2,
+    "question": "enter your best game",
+    "feedbackType": "PARTICIPATED",
+    "questionType": "FREETEST_ANSWER",
+    "feedbackQuestionAnswer": [
+        {
+            "answerId": 2,
+            "questionId": 2,
+            "answers": "test",
+            "eventID": "12345"
+        }
+    ]
+}
+put: http://localhost:8085/admin/feedback/updateFeedbackQuestion/2
+
+{
+	
+"questionId": 2,
+"question" : "enter your best game one",
+"feedbackType" : "PARTICIPATED",
+"questionType": "FREETEST_ANSWER",
+"feedbackQuestionAnswer" : [{
+	"answerId" : 2,
+	"questionId" :2,
+	"answers" : "test kabadi",
+	"eventID": "12345"
+}]
+}

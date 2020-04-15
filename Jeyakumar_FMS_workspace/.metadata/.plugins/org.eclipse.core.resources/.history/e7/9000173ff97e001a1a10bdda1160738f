@@ -1,0 +1,5 @@
+package com.fms.reactiveservice.FeedBackApplication.Service;
+
+public class RolePmoDetailService {
+
+}

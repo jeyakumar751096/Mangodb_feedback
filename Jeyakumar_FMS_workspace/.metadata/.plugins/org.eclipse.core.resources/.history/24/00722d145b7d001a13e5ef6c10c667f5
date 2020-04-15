@@ -1,0 +1,15 @@
+package com.fms.springsecurity.login.repositories;
+
+import java.util.List;
+
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
+
+
+@Repository
+public interface OutreachEventsSummaryRepository extends PagingAndSortingRepository<OutreachEventsSummary, Integer>{
+	
+	List<OutreachEventsSummary> findAll();
+	
+
+}

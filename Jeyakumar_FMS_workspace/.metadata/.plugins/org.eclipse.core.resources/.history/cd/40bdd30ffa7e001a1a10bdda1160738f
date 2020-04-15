@@ -1,0 +1,8 @@
+package com.fms.reactiveservice.FeedBackApplication.Service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class RolePmoDetailService {
+
+}

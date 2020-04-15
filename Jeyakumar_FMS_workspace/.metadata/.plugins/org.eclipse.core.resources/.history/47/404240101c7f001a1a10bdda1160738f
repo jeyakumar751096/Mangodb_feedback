@@ -1,0 +1,39 @@
+package com.fms.reactiveservice.FeedBackApplication.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.fms.reactiveservice.FeedBackApplication.entity.PmoDetails;
+import com.fms.reactiveservice.FeedBackApplication.repositories.RolePmoDetailsRepositories;
+
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+@Service
+public class RolePmoDetailService {
+	
+	
+	@Autowired
+	private RolePmoDetailsRepositories  rolePmoDetailsRepositories;
+	
+	public Mono<PmoDetails> createRoles(PmoDetails pmoDetail) {
+		return rolePmoDetailsRepositories.save(pmoDetail);
+	}
+
+	public Flux<PmoDetails> getAllPmoDetails() {
+		return rolePmoDetailsRepositories.findAll();
+	}
+	
+	public Mono<PmoDetails> getEmployeeId(Integer employeeId) {
+		return rolePmoDetailsRepositories.findByEmployeeId(employeeId);
+	}
+	
+	public Mono<PmoDetails> updatePmodetailByEmpId(PmoDetails pmoDetail,Integer id) {
+		return rolePmoDetailsRepositories.findByEmployeeId(id).flatMap(exitingPmoDetail -> {
+			exitingPmoDetail.setEmpRole(pmoDetail.getEmpRole());
+			return rolePmoDetailsRepositories.save(exitingPmoDetail);
+		});
+	}
+	
+}

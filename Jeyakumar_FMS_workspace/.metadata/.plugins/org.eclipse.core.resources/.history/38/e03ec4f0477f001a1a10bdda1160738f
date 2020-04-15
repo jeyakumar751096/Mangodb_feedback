@@ -1,0 +1,33 @@
+package com.fms.reactiveservice.FeedBackApplication.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fms.reactiveservice.FeedBackApplication.entity.FeedbackQuestion;
+import com.fms.reactiveservice.FeedBackApplication.repositories.AdminFeedbackQnAnswRepository;
+
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+@Service
+public class AdminFeedbackQnAnswService {
+	
+	@Autowired
+	public AdminFeedbackQnAnswRepository adminFeedbackQnAnswRepository;
+	
+	
+	public Mono<FeedbackQuestion> createFeedBackQnA(FeedbackQuestion feedbackQuestion) {
+		return adminFeedbackQnAnswRepository.save(feedbackQuestion);
+	}
+	
+	public Mono<FeedbackQuestion> getFeedBackQnA(Integer feedbackQuestionId) {
+		return adminFeedbackQnAnswRepository.findByquestionId(feedbackQuestionId);
+	}
+	
+	public Flux<FeedbackQuestion> getAllFeedBackQnA() {
+		return adminFeedbackQnAnswRepository.findAll();
+	}
+	
+	
+
+}

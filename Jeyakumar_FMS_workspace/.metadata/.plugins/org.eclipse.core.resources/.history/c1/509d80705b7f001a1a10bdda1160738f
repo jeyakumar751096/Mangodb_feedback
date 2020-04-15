@@ -1,0 +1,37 @@
+package com.fms.reactiveservice.FeedBackApplication.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fms.reactiveservice.FeedBackApplication.Service.UnRegisteredFeedbackService;
+import com.fms.reactiveservice.FeedBackApplication.entity.UnRegisteredFeedback;
+
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+@RestController
+@RequestMapping("/email/UnRegistered")
+public class UnRegisteredFeedbackController {
+
+	@Autowired
+	public UnRegisteredFeedbackService unRegisteredFeedbackService;
+	
+	@PostMapping("/saveFeedback")
+	public Mono<UnRegisteredFeedback> createUnRegistered(UnRegisteredFeedback unRegisteredFeedback) {
+		return unRegisteredFeedbackService.createUnRegistered(unRegisteredFeedback);
+	}
+	
+	@GetMapping("/{employeeId}")
+	public Mono<UnRegisteredFeedback> getUnRegisteredFeedback(Integer employeeId) {
+		return unRegisteredFeedbackService.getUnRegisteredFeedback(employeeId);
+	}
+	
+	
+	@GetMapping("/allFeedBackList")
+	public Flux<UnRegisteredFeedback> getAllUnRegisteredFeedback() {
+		return unRegisteredFeedbackService.getAllUnRegisteredFeedback();
+	}
+}

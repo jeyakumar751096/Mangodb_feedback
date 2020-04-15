@@ -22,4 +22,7 @@ public class UnRegisteredFeedback implements Serializable{
 	private Integer eventId;
 	private Integer questionId;
 	private Integer answerId;
+	private String eventName;	
+	private String beneficiaryName;
+	private String baseLocation;
 }

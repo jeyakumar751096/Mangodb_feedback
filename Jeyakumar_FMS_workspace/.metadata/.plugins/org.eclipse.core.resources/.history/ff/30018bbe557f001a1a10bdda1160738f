@@ -1,0 +1,11 @@
+package com.fms.reactiveservice.FeedBackApplication.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fms.reactiveservice.FeedBackApplication.Service.UnRegisteredFeedbackService;
+
+public class UnRegisteredFeedbackController {
+
+	@Autowired
+	public UnRegisteredFeedbackService unRegisteredFeedbackService;
+}

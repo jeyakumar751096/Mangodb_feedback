@@ -1,0 +1,14 @@
+package com.fms.reactiveservice.FeedBackApplication.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fms.reactiveservice.FeedBackApplication.Service.ParticipatedFeedbackService;
+
+@RestController
+@RequestMapping("/email/Participated")
+public class ParticipatedFeedbackController {
+	
+	public ParticipatedFeedbackService participatedFeedbackService;
+
+}

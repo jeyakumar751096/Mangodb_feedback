@@ -1,0 +1,17 @@
+package com.fms.reactiveservice.FeedBackApplication.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fms.reactiveservice.FeedBackApplication.repositories.NotParticipatedFeedbackRepository;
+
+@Service
+public class NotParticipatedFeedbackService {
+	
+	
+	@Autowired
+	public NotParticipatedFeedbackRepository notParticipatedFeedbackRepository;
+	
+	
+
+}

@@ -59,3 +59,30 @@ put: http://localhost:8085/admin/feedback/updateFeedbackQuestion/2
 
 =========
 get:http://localhost:8085/admin/feedback/getFeedbackTypeQuestions/PARTICIPATED
+
+http://localhost:8085/email/UnRegistered/saveFeedback-->post
+{
+	"unRegisteredId" :2,
+	"employeeId" :759891,
+	"eventId" :123456,
+	"questionId" :1,
+	"answerId" :"1",
+	"eventName" :"event name",	
+	"beneficiaryName" :"kumar ",
+	"baseLocation" :"chennai"
+}
+
+http://localhost:8085/email/UnRegistered/updateFeedBack/759890-->put
+
+{
+	"unRegisteredId" :2,
+	"employeeId" :759890,
+	"eventId" :123456,
+	"questionId" :1,
+	"answerId" :"1",
+	"eventName" :"event name",	
+	"beneficiaryName" :"jeya kumar ",
+	"baseLocation" :"chennai"
+}
+
+http://localhost:8085/email/UnRegistered/deleteFeedBack/759890 -->delete

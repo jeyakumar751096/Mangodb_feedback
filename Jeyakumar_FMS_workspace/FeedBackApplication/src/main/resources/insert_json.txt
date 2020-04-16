@@ -86,3 +86,28 @@ http://localhost:8085/email/UnRegistered/updateFeedBack/759890-->put
 }
 
 http://localhost:8085/email/UnRegistered/deleteFeedBack/759890 -->delete
+
+
+http://localhost:8085/email/NotParticipat/saveFeedback-->post
+
+{
+	"notParticipateId" :2,
+	"employeeId" :759871,
+	"eventId" :123456,
+	"questionId" :1,
+	"answerId" :"1",
+	"eventName" :"event name",	
+	"beneficiaryName" :"kumar ",
+	"baseLocation" :"chennai"
+}
+
+post-->http://localhost:8085/email/Participated/saveFeedback
+
+{
+	"participateId" : 2,
+	"employeeId" : 851096,
+	"eventId" : 123456,
+	"rating" : 5,
+	"activityLike" : "good",
+	"activityImproved" : "need details"
+}

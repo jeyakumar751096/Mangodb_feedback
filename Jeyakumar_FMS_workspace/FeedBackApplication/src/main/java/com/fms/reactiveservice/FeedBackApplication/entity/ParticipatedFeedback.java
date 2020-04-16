@@ -11,9 +11,6 @@ import lombok.Data;
 @Document
 public class ParticipatedFeedback implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id

@@ -111,3 +111,36 @@ post-->http://localhost:8085/email/Participated/saveFeedback
 	"activityLike" : "good",
 	"activityImproved" : "need details"
 }
+
+
+post:http://localhost:8085/email/preparation/callMailApi
+-----
+
+{
+  "emailDetails": [
+    {
+      "empMailId": "jeyakumar.radhakrishnan@gmail.com",
+      "empName": "jeyakumar",
+      "subject": "participate",
+      "message": "123456 this event selected",
+      "feedbackType": "PARTICIPATED",
+      "eventName": "event name test",
+      "eventDate": "10-12-2018",
+      "questions": [
+        {
+          "questionId": 2,
+          "question": "enter your best game",
+          "feedbackType": "PARTICIPATED",
+          "questionType": "FREETEST_ANSWER",
+          "feedbackQuestionAnswer": [
+            {
+              "answerId": 2,
+              "questionId": 2,
+              "answers": "test",
+              "eventID": "12345"
+            }
+          ]
+        }
+      ]
+    }]
+}

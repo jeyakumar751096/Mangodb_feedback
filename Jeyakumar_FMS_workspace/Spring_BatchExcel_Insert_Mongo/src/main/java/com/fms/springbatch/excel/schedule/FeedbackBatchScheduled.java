@@ -29,9 +29,15 @@ private static final Logger log = LoggerFactory.getLogger(FeedbackBatchScheduled
 	Job jobInformation;
 	
 	@Autowired
-	Job jobInformation1;
+	Job jobSummary;
 	
-	@Scheduled(cron="* */2 * * * ?")
+	@Autowired
+	Job jobUnregistered;
+	
+	@Autowired
+	Job jobNotAttend;
+	
+	@Scheduled(cron="* */5 * * * ?")
 	public void perform()throws Exception {
 		JobParameters param=new JobParametersBuilder()
 				.addString("EventInformation-Job", String.valueOf(System.currentTimeMillis()))
@@ -40,9 +46,24 @@ private static final Logger log = LoggerFactory.getLogger(FeedbackBatchScheduled
 			log.info("OutReachEventInformationJob Launch");
 			JobExecution eventInfo_Job=jobLuncher.run(jobInformation, param);
 			log.info("OutReachEventInformationJob Launch status :::"+eventInfo_Job.getExitStatus());
+			
+			log.info("OutReachEventsSummaryJob Launch");
+			JobExecution eventSummary_Job = jobLuncher.run(jobSummary, param);
+			log.info("OutReachEventsSummaryJob Launch status :::" + eventSummary_Job.getExitStatus());
+			
+			log.info("VolunteerEnrollDetailNotAttendJob Launch");
+			JobExecution notAttend_Job = jobLuncher.run(jobNotAttend, param);
+			log.info("VolunteerEnrollDetailNotAttendJob Launch status :::" + notAttend_Job.getExitStatus());
+
+			log.info("VolunteerEnrollDetailUnregisteredJob Launch");
+			JobExecution unRegistered_Job = jobLuncher.run(jobUnregistered, param);
+			log.info("VolunteerEnrollDetailUnregisteredJob Launch status :::" + unRegistered_Job.getExitStatus());
+		  
 		}catch(JobExecutionAlreadyRunningException | JobRestartException | JobInstanceAlreadyCompleteException | JobParametersInvalidException e) {
 			log.error("JobLauncher exception ::"+ e.getMessage());
 		}
 	}
+	
+	
 
 }

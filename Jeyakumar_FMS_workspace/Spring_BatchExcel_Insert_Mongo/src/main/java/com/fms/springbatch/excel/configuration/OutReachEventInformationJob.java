@@ -60,7 +60,7 @@ public class OutReachEventInformationJob {
 	}
 
 	@Bean
-	Job job1(JobBuilderFactory jbf, StepBuilderFactory sbf, ItemStreamReader<OutReachEventInformation> ir,
+	Job jobInformation(JobBuilderFactory jbf, StepBuilderFactory sbf, ItemStreamReader<OutReachEventInformation> ir,
 			ItemWriter<OutReachEventInformation> iw) {
 
 		Step s1 = (Step) sbf.get("file-1").<OutReachEventInformation, OutReachEventInformation>chunk(100).reader(ir)
